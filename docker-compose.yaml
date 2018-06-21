@@ -1,11 +1,13 @@
 version: '3.6'
+volumes:
+  nodemodules:
 services:
   webapp:
     build: .
     user: node
     volumes:
       - .:/home/node/app
-      - /home/node/app/node_modules
+      - nodemodules:/home/node/app/node_modules
     working_dir: /home/node/app
     ports:
       - 80:3000 # change port 80 here if you run into a port conflict
