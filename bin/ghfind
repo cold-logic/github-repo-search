@@ -1,0 +1,16 @@
+#!/usr/bin/env node
+
+const GitHubRepoSearch = require("../src/libraries/GitHubRepoSearch") // Load up the search library
+
+const query = process.argv[2] // Get the query argument
+
+if (query && /^\w*$/.test(query) === false) { // Make sure query is defined and not just whitespace
+  const gh = new GitHubRepoSearch()
+  gh.search(query).then(res => { // Search for our query, return the response
+    if (res === null) return console.log("Could not get any results from GitHub")
+    // If the result isn't null, log the results separated by newlines
+    console.log(res.join("\n"))
+  })
+} else {
+  console.log("Please input a search query and try again")
+}
