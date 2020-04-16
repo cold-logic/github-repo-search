@@ -5,6 +5,7 @@ services:
   webapp:
     build: .
     user: node
+    stdin_open: true # Fix for https://github.com/facebook/create-react-app/issues/8688
     volumes:
       - .:/home/node/app
       - nodemodules:/home/node/app/node_modules
