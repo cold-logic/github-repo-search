@@ -17,6 +17,7 @@
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
   },
+  "bin" : { "ghfind" : "./bin/ghfind" },
   "devDependencies": {},
   "browserslist": {
     "production": [
