@@ -12,6 +12,13 @@ A containerized web app built in React that allows you to search for GitHub repo
 
 ## CLI Usage
 
+### Using Yarn
+
+1. Open the Terminal and run: `yarn link` to symlink the script into your bin folder.
+2. Then run `ghfind hello-world`
+
+### Using Docker
+
 1. Follow steps 1 - 3 from Setup if you haven't already
 2. Open the Terminal and run:
 
