@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { ControlLabel, FormGroup, InputGroup, FormControl, Button } from 'react-bootstrap';
+import {Form, InputGroup, Button} from 'react-bootstrap';
 import GitHubRepoSearch from '../libraries/GitHubRepoSearch'
 
 import './SearchForm.css'
@@ -16,12 +16,14 @@ export default class SearchForm extends Component {
 
   handleChange(e) {
     // Sets the search query when user input is received
+    console.log('handleChange')
     this.setState({ searchQuery: e.target.value });
   }
 
   handleSearch = e => {
     // When the search button is pressed...
     e.preventDefault() // prevent default form submit behavior
+    console.log('handleSearch')
     if (this.state.searchQuery === '') return null // gracefully fail on empty input
     const gh = new GitHubRepoSearch() // make a new search instance
     // Search for our query
@@ -36,35 +38,35 @@ export default class SearchForm extends Component {
 
   render () {
     return (
-      <form action="#" method="post" onSubmit={this.handleSearch}>
-        <FormGroup controlId="formSearchCriteria">
-          <ControlLabel>Search Criteria</ControlLabel>
+      <Form action="#" method="post" onSubmit={this.handleSearch}>
+        <Form.Group controlId="formSearchCriteria">
+          <Form.Label>Search Criteria</Form.Label>
           <InputGroup>
-            <FormControl
+            <Form.Control
               type="text"
               value={this.state.searchQuery}
               placeholder="Try hello-world or awesome-react"
               onChange={this.handleChange}
             />
-            <InputGroup.Button>
-              <Button
-                bsStyle="success"
-                title="Search"
-              >Search</Button>
-            </InputGroup.Button>
+            <InputGroup.Append>
+              <Button type="submit" variant="success" title="Search">
+                Search
+              </Button>
+            </InputGroup.Append>
           </InputGroup>
-        </FormGroup>
-        <FormGroup controlId="formSearchResultsTextarea">
-          <ControlLabel>Search Results</ControlLabel>
-          <FormControl
-            componentClass="textarea"
+        </Form.Group>
+        <Form.Group controlId="formSearchResultsTextarea">
+          <Form.Label>Search Results</Form.Label>
+          <Form.Control
+            as="textarea"
+            rows={3}
             placeholder=""
             readOnly
             className="search-results"
             value={this.state.searchResults}
           />
-        </FormGroup>
-      </form>
+        </Form.Group>
+      </Form>
     )
   }
 }
