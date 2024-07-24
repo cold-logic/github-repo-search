@@ -1,10 +1,12 @@
-import React, { Component } from 'react';
-import {Form, InputGroup, Button} from 'react-bootstrap';
-import GitHubRepoSearch from '../libraries/GitHubRepoSearch'
+import { Component } from 'react';
+import Form from 'react-bootstrap/Form';
+import InputGroup from 'react-bootstrap/InputGroup';
+import Button from 'react-bootstrap/Button';
 
+import GitHubRepoSearch from '../libraries/GitHubRepoSearch'
 import './SearchForm.css'
 
-export default class SearchForm extends Component {
+class SearchForm extends Component {
   constructor(props, context) {
     super(props, context)
     this.handleChange = this.handleChange.bind(this)
@@ -16,15 +18,15 @@ export default class SearchForm extends Component {
 
   handleChange(e) {
     // Sets the search query when user input is received
-    console.log('handleChange')
     this.setState({ searchQuery: e.target.value });
   }
 
   handleSearch = e => {
     // When the search button is pressed...
     e.preventDefault() // prevent default form submit behavior
-    console.log('handleSearch')
-    if (this.state.searchQuery === '') return null // gracefully fail on empty input
+    if (this.state.searchQuery === '') {
+      return null // gracefully fail on empty input
+    }
     const gh = new GitHubRepoSearch() // make a new search instance
     // Search for our query
     gh.search(this.state.searchQuery).then(res => {
@@ -47,12 +49,11 @@ export default class SearchForm extends Component {
               value={this.state.searchQuery}
               placeholder="Try hello-world or awesome-react"
               onChange={this.handleChange}
+              aria-describedby="search-btn"
             />
-            <InputGroup.Append>
-              <Button type="submit" variant="success" title="Search">
-                Search
-              </Button>
-            </InputGroup.Append>
+            <Button type="submit" variant="success" title="Search" id="search-btn">
+              Search
+            </Button>
           </InputGroup>
         </Form.Group>
         <Form.Group controlId="formSearchResultsTextarea">
@@ -70,3 +71,6 @@ export default class SearchForm extends Component {
     )
   }
 }
+
+export default SearchForm 
+

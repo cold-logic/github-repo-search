@@ -1,4 +1,4 @@
-const axios = require('axios')
+import axios from 'axios';
 
 class GitHubRepoSearch {
   
@@ -48,5 +48,4 @@ class GitHubRepoSearch {
 
 } // end GitHubRepoSearch
 
-export default GitHubRepoSearch
-
+export default GitHubRepoSearch;

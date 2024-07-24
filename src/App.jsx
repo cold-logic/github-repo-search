@@ -1,8 +1,7 @@
-import React from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
 import './App.css';
 
-import SearchForm from './components/SearchForm.js';
+import SearchForm from './components/SearchForm';
 
 const App = () => (
   <div className="App">
