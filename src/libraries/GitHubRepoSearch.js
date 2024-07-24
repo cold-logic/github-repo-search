@@ -1,6 +1,6 @@
 const axios = require('axios')
 
-module.exports = class GitHubRepoSearch {
+class GitHubRepoSearch {
   
   constructor () {
     this.hostname = 'https://api.github.com'
@@ -47,3 +47,6 @@ module.exports = class GitHubRepoSearch {
   }
 
 } // end GitHubRepoSearch
+
+export default GitHubRepoSearch
+
