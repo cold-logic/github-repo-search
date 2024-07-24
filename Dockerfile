@@ -11,4 +11,4 @@ COPY package.json yarn.lock $HOME/app/
 
 WORKDIR $HOME/app
 
-RUN yarn install --non-interactive --production
+RUN corepack yarn install
