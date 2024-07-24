@@ -10132,18 +10132,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"loader-utils@npm:^2.0.0":
-  version: 2.0.2
-  resolution: "loader-utils@npm:2.0.2"
-  dependencies:
-    big.js: "npm:^5.2.2"
-    emojis-list: "npm:^3.0.0"
-    json5: "npm:^2.1.2"
-  checksum: 10c0/332ae8db3d4d3fac7e5bbed82da9230857d3f85b3ccf6d3f2e286fa2431887aa9e46965928b2c77a93f5f721cec037539c0cfc718164f0287c5c90f5dce07ad9
-  languageName: node
-  linkType: hard
-
-"loader-utils@npm:^2.0.4":
+"loader-utils@npm:^2.0.0, loader-utils@npm:^2.0.4":
   version: 2.0.4
   resolution: "loader-utils@npm:2.0.4"
   dependencies:
